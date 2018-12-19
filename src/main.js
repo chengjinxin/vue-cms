@@ -19,17 +19,31 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.http.options.root = 'http://www.lovegf.cn:8899';
+//设置全局提交数据的格式
+Vue.http.options.emulateHTTP = true;
 
 //导入mui样式
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
+//导入缩略图插件
+import VuePreview from 'vue2-preview'
+
+// defalut install
+Vue.use(VuePreview)
+
+
 //按需导入mint-ui中的组件
-import { Header,Swipe, SwipeItem } from 'mint-ui'
+// import { Header,Swipe, SwipeItem,Button,Lazyload } from 'mint-ui'
+// import 'mint-ui/lib/style.css'
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload)
+import mintUi from 'mint-ui'
+Vue.use(mintUi)
 import 'mint-ui/lib/style.css'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
 
 //导入router.js模块
 import router from './router.js'
