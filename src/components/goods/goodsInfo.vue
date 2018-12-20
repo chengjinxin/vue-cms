@@ -27,6 +27,27 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      id: this.$route.params.id,
+      lunbotu: []
+    };
+  },
+  created() {
+    this.getlunbotu();
+  },
+  methods: {
+    getlunbotu() {
+      this.$http.get("api/getthumimages/" + this.id).then(result => {
+        if (result.body.result === 0) {
+          this.lunbotu = result.body.message;
+        // console.log(result)
+        }
+      });
+    }
+  }
+};
 </script>
 
 <style lang="less">
